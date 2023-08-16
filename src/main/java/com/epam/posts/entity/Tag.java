@@ -1,9 +1,13 @@
 package com.epam.posts.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="POST_TAG")
+@Data
+@NoArgsConstructor
 public class Tag {
 
     @EmbeddedId
@@ -14,5 +18,4 @@ public class Tag {
 //    @Column(name="tag_id")
 //    private Long tagId;
 
-    public Tag() {}
 }
