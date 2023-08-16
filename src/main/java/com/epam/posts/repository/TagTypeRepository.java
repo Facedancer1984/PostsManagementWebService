@@ -5,6 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface TagTypeRepository extends CrudRepository<TagType, Long> {
+public interface TagTypeRepository extends CrudRepository<TagType,Integer> {
+    @Override
     List<TagType> findAll();
 }

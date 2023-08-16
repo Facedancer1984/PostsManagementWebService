@@ -1,25 +1,24 @@
-DROP TABLE IF EXISTS POST;
+/*drop sequence if exists post_seq;
+drop sequence  if exists tag_seq;
+create sequence post_seq increment 1;
+create sequence tag_seq increment 1;
 
+DROP TABLE IF EXISTS POST;
 CREATE TABLE POST (
-  id INT AUTO_INCREMENT  PRIMARY KEY,
-  title VARCHAR(250) NOT NULL,
-  content VARCHAR(500) NOT NULL
+                      id INT not null unique PRIMARY KEY,
+                      title VARCHAR(250) NOT NULL,
+                      content VARCHAR(500) NOT NULL
 );
 
 DROP TABLE IF EXISTS TAG_TYPE;
-
 CREATE TABLE TAG_TYPE (
-  id INT AUTO_INCREMENT  PRIMARY KEY,
-  tag_name VARCHAR(250) UNIQUE
+                          id INT not null unique PRIMARY KEY ,
+                          tag_name VARCHAR(250) UNIQUE
 );
 
 DROP TABLE IF EXISTS POST_TAG;
-
 CREATE TABLE POST_TAG (
-  post_id INT,
-  tag_id INT,
-  FOREIGN KEY (post_id) REFERENCES POST (id),
-  FOREIGN KEY (tag_id) REFERENCES TAG_TYPE (id),
-  CONSTRAINT UC_PostsTags UNIQUE (post_id, tag_id)
-);
-
+                          post_id INT not null constraint post_const references POST,
+                          tag_id INT not null constraint tag_const references TAG_TYPE,
+                          PRIMARY KEY (post_id, tag_id)
+);*/

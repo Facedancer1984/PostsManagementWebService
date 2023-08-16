@@ -8,13 +8,13 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-@Embeddable
+/*@Embeddable
 @EqualsAndHashCode
 @Data
-@NoArgsConstructor
+@NoArgsConstructor*/
 public class PostTagId implements Serializable {
-    @Column(name = "post_id")
+    /*@Column(name = "post_id")
     private Long postId;
     @Column(name = "tag_id")
-    private Long tagId;
+    private Long tagId;*/
 }
