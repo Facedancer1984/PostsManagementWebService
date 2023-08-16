@@ -21,7 +21,7 @@ public class Post {
     @Column
     private String content;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     Set<TagType> tags;
 
     public Post(String title, String content) {
