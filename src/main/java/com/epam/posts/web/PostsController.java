@@ -1,7 +1,9 @@
 package com.epam.posts.web;
 
 import com.epam.posts.entity.Post;
+import com.epam.posts.entity.TagType;
 import com.epam.posts.repository.PostRepository;
+import com.epam.posts.repository.TagTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -20,6 +22,8 @@ public class PostsController {
 
     @Autowired
     private PostRepository postRepository;
+    @Autowired
+    private TagTypeRepository tagTypeRepository;
 
     @GetMapping("/posts")
     public ResponseEntity<List<Post>> getAllPosts(@RequestParam(value = "tags", required = false) Set<Long> tags,
@@ -71,5 +75,11 @@ public class PostsController {
         postRepository.deleteById(id);
 
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/tag_types")
+    public ResponseEntity<List<TagType>> getAllTagTypes() {
+        List<TagType> tagTypes = tagTypeRepository.findAll();
+        return new ResponseEntity<>(tagTypes, HttpStatus.OK);
     }
 }
