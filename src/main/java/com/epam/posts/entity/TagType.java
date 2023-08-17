@@ -16,4 +16,7 @@ public class TagType {
     @Column(name="tag_name")
     private String tagName;
 
+    public TagType(String tagName) {
+        this.tagName = tagName;
+    }
 }

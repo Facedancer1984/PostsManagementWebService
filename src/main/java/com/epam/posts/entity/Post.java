@@ -1,9 +1,9 @@
 package com.epam.posts.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.mapping.List;
 
 import java.util.Set;
 
@@ -11,6 +11,7 @@ import java.util.Set;
 @Table(name="POST")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,18 +21,11 @@ public class Post {
     @Column
     private String content;
 
-    @OneToMany
-    @JoinColumn(name = "post_id")
-    Set<Tag> tags;
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.DETACH})
+    Set<TagType> tags;
 
     public Post(String title, String content) {
         this.title  = title;
         this.content = content;
-    }
-
-    public Post(String title, String content, Set<Tag> tags) {
-        this.title  = title;
-        this.content = content;
-        this.tags = tags;
     }
 }

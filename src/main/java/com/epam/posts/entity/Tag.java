@@ -4,14 +4,14 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+/*@Entity
 @Table(name="POST_TAG")
 @Data
-@NoArgsConstructor
+@NoArgsConstructor*/
 public class Tag {
 
-    @EmbeddedId
-    private PostTagId id;
+/*    @EmbeddedId
+    private PostTagId id;*/
 //    @Column(name="post_id")
 //    private Long postId;
 //
